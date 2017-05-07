@@ -1,0 +1,34 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	align-items: center;
+	background: url(../images/bg.jpg) center center no-repeat;
+	background-size: cover;
+	font-family: 'Karla', sans-serif;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+}
+h1{
+	color: #000000;
+    font-size: 72px;
+    text-shadow: 0 0px 1px #fff;
+}
+.exchange-table{
+	margin-top: 15px;
+}
+.exchange-table table{
+	border-collapse: collapse;
+}
+.exchange-table table td{
+	background: rgba(0,0,0,0.35);
+    border: solid 1px rgba(255,255,255,.2);
+    color: #fff;
+    font-size: 21px;
+    padding: 15px 40px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0,0,0,1);
+}

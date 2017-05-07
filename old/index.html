@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>obmenka.name</title>
+	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+	<script>
+		
+			var spreadsheetID	= 	"1Sckbhuln9nkV-RRSXXrhR22wTT-QSCpgfytORbm2k6E",
+				url 			= 	"https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+			$.getJSON(url, function(data) {
+				var dollarGrivnaBuy		= data.feed.entry[3].gsx$доллар.$t,
+					dollarGrivnaSell	= data.feed.entry[3].gsx$_cpzh4.$t,
+					evroGrivnaBuy		= data.feed.entry[4].gsx$доллар.$t,
+					evroGrivnaSell		= data.feed.entry[4].gsx$_cpzh4.$t,
+					rublGrivnaBuy		= data.feed.entry[5].gsx$доллар.$t,
+					rublGrivnaSell		= data.feed.entry[5].gsx$_cpzh4.$t,
+					dollarRublBuy		= data.feed.entry[8].gsx$доллар.$t,
+					dollarRublSell		= data.feed.entry[8].gsx$_cpzh4.$t,
+					evroDollarBuy		= data.feed.entry[9].gsx$доллар.$t,
+					evroDollarSell		= data.feed.entry[9].gsx$_cpzh4.$t,
+					evroRublBuy			= data.feed.entry[10].gsx$доллар.$t,
+					evroRublSell		= data.feed.entry[10].gsx$_cpzh4.$t;
+				$('.dollarGrivnaBuy').html(dollarGrivnaBuy);
+				$('.dollarGrivnaSell').html(dollarGrivnaSell);
+				$('.evroGrivnaBuy').html(evroGrivnaBuy);
+				$('.evroGrivnaSell').html(evroGrivnaSell);
+				$('.rublGrivnaBuy').html(rublGrivnaBuy);
+				$('.rublGrivnaSell').html(rublGrivnaSell);
+				$('.dollarRublBuy').html(dollarRublBuy);
+				$('.dollarRublSell').html(dollarRublSell);
+				$('.evroDollarBuy').html(evroDollarBuy);
+				$('.evroDollarSell').html(evroDollarSell);
+				$('.evroRublBuy').html(evroRublBuy);
+				$('.evroRublSell').html(evroRublSell);
+			})
+		
+	</script>
+</head>
+<body>
+	<h1>Obmenka.name</h1>
+	<div class="exchange-table">
+		<table>
+			<tr>
+				<td>$/₴</td>
+				<td><span class="dollarGrivnaBuy"></span></td>
+				<td><span class="dollarGrivnaSell"></span></td>
+			</tr>
+			<tr>
+				<td>€/₴</td>
+				<td><span class="evroGrivnaBuy"></span></td>
+				<td><span class="evroGrivnaSell"></span></td>
+			</tr>
+			<tr>
+				<td>₽/₴</td>
+				<td><span class="rublGrivnaBuy"></span></td>
+				<td><span class="rublGrivnaSell"></span></td>
+			</tr>
+			<tr>
+				<td>$/₽</td>
+				<td><span class="dollarRublBuy"></span></td>
+				<td><span class="dollarRublSell"></span></td>
+			</tr>
+			<tr>
+				<td>€/$</td>
+				<td><span class="evroDollarBuy"></span></td>
+				<td><span class="evroDollarSell"></span></td>
+			</tr>
+			<tr>
+				<td>€/₽</td>
+				<td><span class="evroRublBuy"></span></td>
+				<td><span class="evroRublSell"></span></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
