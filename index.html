@@ -5,10 +5,11 @@
 	<title>obmenka.name</title>
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link href="https://fonts.googleapis.com/css?family=Exo+2&amp;subset=cyrillic" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css?v=1">
+	<link rel="stylesheet" href="css/style.css?v=2">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	<script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+	
+	<!-- <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script> -->
 
 
 	<script>
@@ -67,6 +68,18 @@
 				$('.k_evroDollarSell').html(k_evroDollarSell);
 				$('.k_evroRublBuy').html(k_evroRublBuy);
 				$('.k_evroRublSell').html(k_evroRublSell);
+
+				// date
+				var 	updateVal 	= data.feed.updated.$t, 
+						updateDate 	= updateVal.substr(0, updateVal.indexOf('T')),
+						updateTime 	= updateVal.substr(updateVal.indexOf('T') + 1, 5),
+						updateDateArr = updateDate.split('-'),
+						updateDateYear = updateDateArr[0],
+						updateDateMonth = updateDateArr[1] - 1,
+						updateDateDay = updateDateArr[2],
+						month = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря'],
+						updateText = updateDateDay + ' ' + month[updateDateMonth] + ', ' + updateTime;
+				$('.update-text').html(updateText);
 			});
 
 			$(function(){
@@ -78,17 +91,36 @@
 					$(this).addClass('active').siblings().removeClass('active');
 				});
 
-				ymaps.ready(function() {
-		            var city = ymaps.geolocation.city;
-		        });
+				// ymaps.ready(function() {
+		  //           var city = ymaps.geolocation.city;
+		  //       });
 			})
 		
 	</script>
 </head>
 <body>
-	<h1 class=logo>
-		<img src="images/logo.png" alt="obmenka.name">
-	</h1>
+	<div class="head flex-row">
+		<h1 class=logo>
+			<img src="images/logo.png" alt="obmenka.name">
+		</h1>
+		<div class="head-address">
+			г. Славянск, ул. Банковская, <br>
+			86-а (САТУ, "Хитрый" рынок) <br>
+			<a href="tel:050-615-93-06">050-615-93-06</a>, <br>
+			<a href="tel:093-419-49-06">093-419-49-06</a> <br>
+			Режим работы: 07:00-20:00 <br>
+			без перерывов и выходных
+		</div>
+		<div class="head-address">
+			г. Константиновка, бул. Космонавтов, 2-Г <br>
+			(пересечение бул. Космонавтов и ул. Циолковского, <br>
+			"Хитрый" рынок, новые бутики) <br>
+			<a href="tel:050-034-89-33">050-034-89-33</a>, <br>
+			<a href="tel:093-053-04-52">093-053-04-52</a> <br>
+			Режим работы 7:00-21:00 <br>
+			без перерывов и выходных
+		</div>
+	</div>
 	<div class="exchange-tabs">
 		<ul class="exchange-tabs-list">
 			<li class="active">Славянск</li>
@@ -101,39 +133,44 @@
 					<div class="exchange-table col-6">
 						<table>
 							<tr>
-								<td>$/₴</td>
+								<td><span class="update-text"></span></td>
+								<td>Покупка</td>
+								<td>Продажа</td>
+							</tr>
+							<tr>
+								<td>USD/UAH</td>
 								<td><span class="s_dollarGrivnaBuy"></span></td>
 								<td><span class="s_dollarGrivnaSell"></span></td>
 							</tr>
 							<tr>
-								<td>€/₴</td>
+								<td>EUR/UAH</td>
 								<td><span class="s_evroGrivnaBuy"></span></td>
 								<td><span class="s_evroGrivnaSell"></span></td>
 							</tr>
 							<tr>
-								<td>₽/₴</td>
+								<td>RUB/UAH</td>
 								<td><span class="s_rublGrivnaBuy"></span></td>
 								<td><span class="s_rublGrivnaSell"></span></td>
 							</tr>
 							<tr>
-								<td>$/₽</td>
+								<td>USD/RUB</td>
 								<td><span class="s_dollarRublBuy"></span></td>
 								<td><span class="s_dollarRublSell"></span></td>
 							</tr>
 							<tr>
-								<td>€/$</td>
+								<td>EUR/USD</td>
 								<td><span class="s_evroDollarBuy"></span></td>
 								<td><span class="s_evroDollarSell"></span></td>
 							</tr>
 							<tr>
-								<td>€/₽</td>
+								<td>EUR/RUB</td>
 								<td><span class="s_evroRublBuy"></span></td>
 								<td><span class="s_evroRublSell"></span></td>
 							</tr>
 						</table>
 					</div>
 					<div class="exchange-map col-6">
-						<iframe src="https://api-maps.yandex.ua/frame/v1/-/C6qjVG9-" width="100%" height="406" frameborder="0"></iframe>
+						<iframe src="https://api-maps.yandex.ua/frame/v1/-/C6qoVKYY" width="100%" height="463" frameborder="0"></iframe>
 					</div>
 				</div>
 			</div>
@@ -144,44 +181,87 @@
 					<div class="exchange-table col-6">
 						<table>
 							<tr>
-								<td>$/₴</td>
+								<td></td>
+								<td>Покупка</td>
+								<td>Продажа</td>
+							</tr>
+							<tr>
+								<td>USD/UAH</td>
 								<td><span class="k_dollarGrivnaBuy"></span></td>
 								<td><span class="k_dollarGrivnaSell"></span></td>
 							</tr>
 							<tr>
-								<td>€/₴</td>
+								<td>EUR/UAH</td>
 								<td><span class="k_evroGrivnaBuy"></span></td>
 								<td><span class="k_evroGrivnaSell"></span></td>
 							</tr>
 							<tr>
-								<td>₽/₴</td>
+								<td>RUB/UAH</td>
 								<td><span class="k_rublGrivnaBuy"></span></td>
 								<td><span class="k_rublGrivnaSell"></span></td>
 							</tr>
 							<tr>
-								<td>$/₽</td>
+								<td>USD/RUB</td>
 								<td><span class="k_dollarRublBuy"></span></td>
 								<td><span class="k_dollarRublSell"></span></td>
 							</tr>
 							<tr>
-								<td>€/$</td>
+								<td>EUR/USD</td>
 								<td><span class="k_evroDollarBuy"></span></td>
 								<td><span class="k_evroDollarSell"></span></td>
 							</tr>
 							<tr>
-								<td>€/₽</td>
+								<td>EUR/RUB</td>
 								<td><span class="k_evroRublBuy"></span></td>
 								<td><span class="k_evroRublSell"></span></td>
 							</tr>
 						</table>
 					</div>
 					<div class="exchange-map col-6">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.231167972486!2d37.67880515098404!3d48.50963307915302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dfc42bbb18ef4b%3A0xf697f5ce10b49529!2z0LHRg9C70YzQstCw0YAg0JrQvtGB0LzQvtC90LDQstGC0ZbQsiwgMiwg0JrQvtGB0YLRj9C90YLQuNC90ZbQstC60LAsINCU0L7QvdC10YbRjNC60LAg0L7QsdC70LDRgdGC0Yw!5e0!3m2!1sru!2sua!4v1494085728932" width="100%" height="406px" frameborder="0" style="border:0" allowfullscreen></iframe>
+						<iframe src="https://api-maps.yandex.ua/frame/v1/-/C6qoVW95" width="100%" height="463" frameborder="0"></iframe>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter44567699 = new Ya.Metrika({
+                    id:44567699,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/44567699" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98915920-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>
