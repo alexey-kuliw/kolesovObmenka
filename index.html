@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>obmenka.name</title>
+
+	<title>Курс доллара на сегодня в Славянске и Константиновке.</title>
+
+	<meta name="description" content="Информация о курсе доллара в Славянске и Константиновке! Сегодня - покупка доллара, продажа доллара. "/>
+
+	<meta name="keywords" content="Курс доллара, курс доллара Славянск, курс валют Славянск, курс валют Константиновка, курс доллара Константиновка, курс евро, курс рубля, курс рубля Славянск, курс рубля константиновка, купить доллар, продать доллар, обменять доллар, купить евро, продать евро, обменять евро, купить рубль, купить рубли, продать рубль, продать рубли, купить доллар в славянске, купить доллар в Константиновке, продать доллар в славянске, продать доллар в константиновке, хитрый рынок, рынок юбиленый, обменка на хитром, обменка славянск, славянск обменка, обменка на хитром рынке, обменка константиновка, константиновка обменка"/>
+	
+	<meta name="robots" content="index, follow">
+
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link href="https://fonts.googleapis.com/css?family=Exo+2&amp;subset=cyrillic" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css?v=2">
+	<link rel="stylesheet" href="css/style.css?v=3">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	
-	<!-- <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script> -->
-
 
 	<script>
 		
 			var spreadsheetID	= 	"1Sckbhuln9nkV-RRSXXrhR22wTT-QSCpgfytORbm2k6E",
+				// spreadsheetID 	=  "1mjeo4DwLYnbBzSrj_6qYw7Y1olp05KZg2Uk-CZVhlns",
 				url 			= 	"https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
 			$.getJSON(url, function(data) {
+				// console.log(data);
 				var s_dollarGrivnaBuy	= data.feed.entry[3].gsx$доллар.$t,
 					s_dollarGrivnaSell	= data.feed.entry[3].gsx$_cpzh4.$t,
 					s_evroGrivnaBuy		= data.feed.entry[4].gsx$доллар.$t,
@@ -79,7 +86,11 @@
 						updateDateDay = updateDateArr[2],
 						month = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря'],
 						updateText = updateDateDay + ' ' + month[updateDateMonth] + ', ' + updateTime;
-				$('.update-text').html(updateText);
+
+						updateTimeData	= data.feed.entry[22].gsx$_cn6ca.$t;
+
+
+				$('.update-text').html(updateTimeData);
 			});
 
 			$(function(){
@@ -91,9 +102,10 @@
 					$(this).addClass('active').siblings().removeClass('active');
 				});
 
-				// ymaps.ready(function() {
-		  //           var city = ymaps.geolocation.city;
-		  //       });
+                setTimeout(function(){$('.start-popup').addClass('active')}, 3000);
+                $('.close').click(function(){
+                    $('.start-popup').removeClass('active');
+                })
 			})
 		
 	</script>
@@ -108,8 +120,9 @@
 			86-а (САТУ, "Хитрый" рынок) <br>
 			<a href="tel:050-615-93-06">050-615-93-06</a>, <br>
 			<a href="tel:093-419-49-06">093-419-49-06</a> <br>
-			Режим работы: 07:00-20:00 <br>
-			без перерывов и выходных
+			Режим работы: <br>
+			пн-сб: 07:00-20:00 <br>
+			вс: 07:00-19:00
 		</div>
 		<div class="head-address">
 			г. Константиновка, бул. Космонавтов, 2-Г <br>
@@ -170,7 +183,7 @@
 						</table>
 					</div>
 					<div class="exchange-map col-6">
-						<iframe src="https://api-maps.yandex.ua/frame/v1/-/C6qoVKYY" width="100%" height="463" frameborder="0"></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.254336905216!2d37.59783331567413!3d48.85336027928698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40df9b2847d429f7%3A0x3f225c2bc4a1e301!2z0J7QsdC80LXQvSDQstCw0LvRjtGCINCe0J7QniAi0KTQmiAi0JDQsdGB0L7Qu9GO0YIg0YTQuNC90LDQvdGBIiDQntGC0LTQtdC70LXQvdC40LUg4oSWIDg4!5e0!3m2!1sru!2s!4v1495311542753" width="100%" height="463" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</div>
 				</div>
 			</div>
@@ -181,7 +194,7 @@
 					<div class="exchange-table col-6">
 						<table>
 							<tr>
-								<td></td>
+								<td><span class="update-text"></span></td>
 								<td>Покупка</td>
 								<td>Продажа</td>
 							</tr>
@@ -218,41 +231,19 @@
 						</table>
 					</div>
 					<div class="exchange-map col-6">
-						<iframe src="https://api-maps.yandex.ua/frame/v1/-/C6qoVW95" width="100%" height="463" frameborder="0"></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.0983722603405!2d37.68038111566219!3d48.512178879255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dfc429a4c94aa7%3A0xa12f2112744032e3!2z0J7QsdC80LXQvSDQstCw0LvRjtGCINCe0J7QniAi0JDQsdGB0L7Qu9GO0YIg0YTQuNC90LDQvdGBIiwg0JTQvtC90LXRhtC60L7QtSDQvtGC0LTQtdC70LXQvdC40LUg4oSWIDk4!5e0!3m2!1sru!2s!4v1495311490037" width="100%" height="463" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter44567699 = new Ya.Metrika({
-                    id:44567699,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/44567699" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+	<div class="start-popup flex-row">
+        <div class="start-popup-in">
+            <button class="close">&times;</button>
+            <p>Уважаемые клиенты! Курсы указанные на сайте являются розничными. Оптовые курсы уточняйте по телефонам, указанным на сайте. (Оптовой считается сумма в эквиваленте не менее 1000 у.е.)</p>
+        </div>
+    </div>
+<!-- google analitics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -263,5 +254,20 @@
   ga('send', 'pageview');
 
 </script>
+<div style="text-align: center;padding: 10px 0;">
+<!-- I.UA counter --><a href="//www.i.ua/" target="_blank" onclick="this.href='//i.ua/r.php?213794';" title="Rated by I.UA">
+<script type="text/javascript"><!--
+iS='http'+(window.location.protocol=='https:'?'s':'')+
+'://r.i.ua/s?u213794&p4&n'+Math.random();
+iD=document;if(!iD.cookie)iD.cookie="b=b; path=/";if(iD.cookie)iS+='&c1';
+iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
++"&w"+screen.width+'&h'+screen.height;
+iT=iR=iD.referrer.replace(iP=/^[a-z]*:\/\//,'');iH=window.location.href.replace(iP,'');
+((iI=iT.indexOf('/'))!=-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+if(iT!=iH.substring(0,iI))iS+='&f'+escape(iR);
+iS+='&r'+escape(iH);
+iD.write('<img src="'+iS+'" border="0" width="88" height="31" />');
+//--></script></a><!-- End of I.UA counter -->
+</div>
 </body>
 </html>
