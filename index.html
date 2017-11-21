@@ -87,8 +87,10 @@
 						month = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря'],
 						updateText = updateDateDay + ' ' + month[updateDateMonth] + ', ' + updateTime;
 
-						updateTimeData	= data.feed.entry[22].gsx$_cn6ca.$t;
-
+						// updateTimeData	= data.feed.entry[22].gsx$_cn6ca.$t;
+						var dt = new Date();
+						var dtMonth = dt.getMonth() + 1;
+						var updateTimeData = dt.getDate() + '.' + dtMonth + '.' + dt.getFullYear() + '<span style="padding:0 10px;"></span>' + dt.getHours() + ":" + dt.getMinutes();
 
 				$('.update-text').html(updateTimeData);
 			});
@@ -119,7 +121,6 @@
 			г. Славянск, ул. Банковская, <br>
 			86-а (САТУ, "Хитрый" рынок) <br>
 			<a href="tel:050-615-93-06">050-615-93-06</a>, <br>
-			<a href="tel:093-419-49-06">093-419-49-06</a> <br>
 			Режим работы: <br>
 			пн-сб: 07:00-20:00 <br>
 			вс: 07:00-19:00
@@ -129,9 +130,9 @@
 			(пересечение бул. Космонавтов и ул. Циолковского, <br>
 			"Хитрый" рынок, новые бутики) <br>
 			<a href="tel:050-034-89-33">050-034-89-33</a>, <br>
-			<a href="tel:093-053-04-52">093-053-04-52</a> <br>
-			Режим работы 7:00-21:00 <br>
-			без перерывов и выходных
+			Режим работы: <br>
+			пн-сб: 07:00-20:00 <br>
+			вс: 07:00-19:00	
 		</div>
 	</div>
 	<div class="exchange-tabs">
