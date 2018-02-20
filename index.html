@@ -13,7 +13,7 @@
 
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link href="https://fonts.googleapis.com/css?family=Exo+2&amp;subset=cyrillic" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css?v=4">
+	<link rel="stylesheet" href="css/style.css?v=5">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
@@ -49,6 +49,19 @@
 					k_evroDollarSell	= data.feed.entry[20].gsx$_cpzh4.$t,
 					k_evroRublBuy		= data.feed.entry[21].gsx$доллар.$t,
 					k_evroRublSell		= data.feed.entry[21].gsx$_cpzh4.$t;
+
+					p_dollarGrivnaBuy	= data.feed.entry[25].gsx$доллар.$t,
+					p_dollarGrivnaSell	= data.feed.entry[25].gsx$_cpzh4.$t,
+					p_evroGrivnaBuy		= data.feed.entry[26].gsx$доллар.$t,
+					p_evroGrivnaSell	= data.feed.entry[26].gsx$_cpzh4.$t,
+					p_rublGrivnaBuy		= data.feed.entry[27].gsx$доллар.$t,
+					p_rublGrivnaSell	= data.feed.entry[27].gsx$_cpzh4.$t,
+					p_dollarRublBuy		= data.feed.entry[30].gsx$доллар.$t,
+					p_dollarRublSell	= data.feed.entry[30].gsx$_cpzh4.$t,
+					p_evroDollarBuy		= data.feed.entry[31].gsx$доллар.$t,
+					p_evroDollarSell	= data.feed.entry[31].gsx$_cpzh4.$t,
+					p_evroRublBuy		= data.feed.entry[32].gsx$доллар.$t,
+					p_evroRublSell		= data.feed.entry[32].gsx$_cpzh4.$t;
 				
 				$('.s_dollarGrivnaBuy').html(s_dollarGrivnaBuy);
 				$('.s_dollarGrivnaSell').html(s_dollarGrivnaSell);
@@ -75,6 +88,19 @@
 				$('.k_evroDollarSell').html(k_evroDollarSell);
 				$('.k_evroRublBuy').html(k_evroRublBuy);
 				$('.k_evroRublSell').html(k_evroRublSell);
+
+				$('.p_dollarGrivnaBuy').html(p_dollarGrivnaBuy);
+				$('.p_dollarGrivnaSell').html(p_dollarGrivnaSell);
+				$('.p_evroGrivnaBuy').html(p_evroGrivnaBuy);
+				$('.p_evroGrivnaSell').html(p_evroGrivnaSell);
+				$('.p_rublGrivnaBuy').html(p_rublGrivnaBuy);
+				$('.p_rublGrivnaSell').html(p_rublGrivnaSell);
+				$('.p_dollarRublBuy').html(p_dollarRublBuy);
+				$('.p_dollarRublSell').html(p_dollarRublSell);
+				$('.p_evroDollarBuy').html(p_evroDollarBuy);
+				$('.p_evroDollarSell').html(p_evroDollarSell);
+				$('.p_evroRublBuy').html(p_evroRublBuy);
+				$('.p_evroRublSell').html(p_evroRublSell);
 
 				// date
 				var 	updateVal 	= data.feed.updated.$t, 
@@ -115,30 +141,31 @@
 <body>
 	<div class="head flex-row">
 		<h1 class=logo>
-			<img src="images/logo.png" alt="obmenka.name">
+			<img src="images/logo.png" alt="obmenka.name"><br>
+			Работаем для Вас: пн-сб: 7:00-20:00 <br>
+			вс 7:00-19:00
 		</h1>
 		<div class="head-address">
 			г. Славянск, ул. Банковская, <br>
 			86-а (САТУ, "Хитрый" рынок) <br>
-			<a href="tel:050-615-93-06">050-615-93-06</a>, <br>
-			Режим работы: <br>
-			пн-сб: 07:00-20:00 <br>
-			вс: 07:00-19:00
+			<a href="tel:050-615-93-06">050-615-93-06</a>
 		</div>
 		<div class="head-address">
 			г. Константиновка, бул. Космонавтов, 2-Г <br>
 			(пересечение бул. Космонавтов и ул. Циолковского, <br>
 			"Хитрый" рынок, новые бутики) <br>
-			<a href="tel:050-034-89-33">050-034-89-33</a>, <br>
-			Режим работы: <br>
-			пн-сб: 07:00-20:00 <br>
-			вс: 07:00-19:00	
+			<a href="tel:050-034-89-33">050-034-89-33</a>
+		</div>
+		<div class="head-address">
+			г. Покровск, мр-н Шахтерский, 2 <br>
+			<a href="tel:095-548-68-31">095-548-68-31</a>
 		</div>
 	</div>
 	<div class="exchange-tabs">
 		<ul class="exchange-tabs-list">
 			<li class="active">Славянск</li>
 			<li>Константиновка</li>
+			<li>Покровск</li>
 		</ul>
 		<div class="exchange-tabs-content">
 			<!-- slavyansk -->
@@ -239,6 +266,54 @@
 					</div>
 					<div class="exchange-map col-6">
 						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.0983722603405!2d37.68038111566219!3d48.512178879255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dfc429a4c94aa7%3A0xa12f2112744032e3!2z0J7QsdC80LXQvSDQstCw0LvRjtGCINCe0J7QniAi0JDQsdGB0L7Qu9GO0YIg0YTQuNC90LDQvdGBIiwg0JTQvtC90LXRhtC60L7QtSDQvtGC0LTQtdC70LXQvdC40LUg4oSWIDk4!5e0!3m2!1sru!2s!4v1495311490037" width="100%" height="463" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+
+			<!-- pokrovsk -->
+			<div class="exchange-tabs-content-item active">
+				<div class="flex-row">
+					<div class="exchange-table col-6">
+						<table>
+							<tr>
+								<td><span class="update-text"></span></td>
+								<td>Покупка</td>
+								<td>Продажа</td>
+							</tr>
+							<tr>
+								<td>USD/UAH</td>
+								<td><span class="p_dollarGrivnaBuy"></span></td>
+								<td><span class="p_dollarGrivnaSell"></span></td>
+							</tr>
+							<tr>
+								<td>EUR/UAH</td>
+								<td><span class="p_evroGrivnaBuy"></span></td>
+								<td><span class="p_evroGrivnaSell"></span></td>
+							</tr>
+							<tr>
+								<td>RUB/UAH</td>
+								<td><span class="p_rublGrivnaBuy"></span></td>
+								<td><span class="p_rublGrivnaSell"></span></td>
+							</tr>
+							<tr>
+								<td>USD/RUB</td>
+								<td><span class="p_dollarRublBuy"></span></td>
+								<td><span class="p_dollarRublSell"></span></td>
+							</tr>
+							<tr>
+								<td>EUR/USD</td>
+								<td><span class="p_evroDollarBuy"></span></td>
+								<td><span class="p_evroDollarSell"></span></td>
+							</tr>
+							<tr>
+								<td>EUR/RUB</td>
+								<td><span class="p_evroRublBuy"></span></td>
+								<td><span class="p_evroRublSell"></span></td>
+							</tr>
+						</table>
+					</div>
+					<div class="exchange-map col-6">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21244.45776843836!2d37.1631756!3d48.2728949!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9b2d1db64d4b2419!2sObmenka.name!5e0!3m2!1sru!2sua!4v1519157978508" width="100%" height="463" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</div>
 				</div>
 			</div>
