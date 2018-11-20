@@ -3,17 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 
-	<title>Курс доллара на сегодня в Славянске и Константиновке.</title>
+	<title>Курс доллара на сегодня в Славянске, Константиновке и Покровске.</title>
 
-	<meta name="description" content="Информация о курсе доллара в Славянске и Константиновке! Сегодня - покупка доллара, продажа доллара. "/>
+	<meta name="description" content="Информация о курсе доллара в Славянске, Константиновке и Покровске! Сегодня - покупка доллара, продажа доллара. "/>
 
-	<meta name="keywords" content="Курс доллара, курс доллара Славянск, курс валют Славянск, курс валют Константиновка, курс доллара Константиновка, курс евро, курс рубля, курс рубля Славянск, курс рубля константиновка, купить доллар, продать доллар, обменять доллар, купить евро, продать евро, обменять евро, купить рубль, купить рубли, продать рубль, продать рубли, купить доллар в славянске, купить доллар в Константиновке, продать доллар в славянске, продать доллар в константиновке, хитрый рынок, рынок юбиленый, обменка на хитром, обменка славянск, славянск обменка, обменка на хитром рынке, обменка константиновка, константиновка обменка"/>
+	<meta name="keywords" content="Курс доллара, курс доллара Славянск, курс валют Славянск, курс валют Константиновка, курс доллара Константиновка, курс доллара Покровск, курс валют Покровск,курс евро, курс рубля, курс рубля Славянск, курс рубля константиновка, курс рубля Покровск, купить доллар, продать доллар, обменять доллар, купить евро, продать евро, обменять евро, купить рубль, купить рубли, продать рубль, продать рубли, купить доллар в славянске, купить доллар в Константиновке, продать доллар в славянске, купить доллар в Покровске, продать доллар в константиновке, продать доллар в Покровске, хитрый рынок, рынок юбиленый, обменка на хитром, обменка славянск, славянск обменка, обменка на хитром рынке, обменка константиновка, константиновка обменка, обменка покровск, покровск обменка"/>
 	
 	<meta name="robots" content="index, follow">
 
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link href="https://fonts.googleapis.com/css?family=Exo+2&amp;subset=cyrillic" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css?v=5">
+	<link rel="stylesheet" href="css/style.css?v=6">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
@@ -23,45 +23,54 @@
 				// spreadsheetID 	=  "1mjeo4DwLYnbBzSrj_6qYw7Y1olp05KZg2Uk-CZVhlns",
 				url 			= 	"https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
 			$.getJSON(url, function(data) {
-				// console.log(data);
+				console.log(data);
 				var s_dollarGrivnaBuy	= data.feed.entry[3].gsx$доллар.$t,
 					s_dollarGrivnaSell	= data.feed.entry[3].gsx$_cpzh4.$t,
 					s_evroGrivnaBuy		= data.feed.entry[4].gsx$доллар.$t,
 					s_evroGrivnaSell	= data.feed.entry[4].gsx$_cpzh4.$t,
 					s_rublGrivnaBuy		= data.feed.entry[5].gsx$доллар.$t,
 					s_rublGrivnaSell	= data.feed.entry[5].gsx$_cpzh4.$t,
-					s_dollarRublBuy		= data.feed.entry[8].gsx$доллар.$t,
-					s_dollarRublSell	= data.feed.entry[8].gsx$_cpzh4.$t,
-					s_evroDollarBuy		= data.feed.entry[9].gsx$доллар.$t,
-					s_evroDollarSell	= data.feed.entry[9].gsx$_cpzh4.$t,
-					s_evroRublBuy		= data.feed.entry[10].gsx$доллар.$t,
-					s_evroRublSell		= data.feed.entry[10].gsx$_cpzh4.$t,
+					
+					s_zlotiyGrivnaBuy	= data.feed.entry[6].gsx$доллар.$t,
+					s_zlotiyGrivnaSell	= data.feed.entry[6].gsx$_cpzh4.$t,
+					// s_dollarRublBuy		= data.feed.entry[8].gsx$доллар.$t,
+					// s_dollarRublSell	= data.feed.entry[8].gsx$_cpzh4.$t,
+					// s_evroDollarBuy		= data.feed.entry[9].gsx$доллар.$t,
+					// s_evroDollarSell	= data.feed.entry[9].gsx$_cpzh4.$t,
+					// s_evroRublBuy		= data.feed.entry[10].gsx$доллар.$t,
+					// s_evroRublSell		= data.feed.entry[10].gsx$_cpzh4.$t,
 
-					k_dollarGrivnaBuy	= data.feed.entry[14].gsx$доллар.$t,
-					k_dollarGrivnaSell	= data.feed.entry[14].gsx$_cpzh4.$t,
-					k_evroGrivnaBuy		= data.feed.entry[15].gsx$доллар.$t,
-					k_evroGrivnaSell	= data.feed.entry[15].gsx$_cpzh4.$t,
-					k_rublGrivnaBuy		= data.feed.entry[16].gsx$доллар.$t,
-					k_rublGrivnaSell	= data.feed.entry[16].gsx$_cpzh4.$t,
-					k_dollarRublBuy		= data.feed.entry[19].gsx$доллар.$t,
-					k_dollarRublSell	= data.feed.entry[19].gsx$_cpzh4.$t,
-					k_evroDollarBuy		= data.feed.entry[20].gsx$доллар.$t,
-					k_evroDollarSell	= data.feed.entry[20].gsx$_cpzh4.$t,
-					k_evroRublBuy		= data.feed.entry[21].gsx$доллар.$t,
-					k_evroRublSell		= data.feed.entry[21].gsx$_cpzh4.$t;
+					k_dollarGrivnaBuy	= data.feed.entry[15].gsx$доллар.$t,
+					k_dollarGrivnaSell	= data.feed.entry[15].gsx$_cpzh4.$t,
+					k_evroGrivnaBuy		= data.feed.entry[16].gsx$доллар.$t,
+					k_evroGrivnaSell	= data.feed.entry[16].gsx$_cpzh4.$t,
+					k_rublGrivnaBuy		= data.feed.entry[17].gsx$доллар.$t,
+					k_rublGrivnaSell	= data.feed.entry[17].gsx$_cpzh4.$t,
 
-					p_dollarGrivnaBuy	= data.feed.entry[25].gsx$доллар.$t,
-					p_dollarGrivnaSell	= data.feed.entry[25].gsx$_cpzh4.$t,
-					p_evroGrivnaBuy		= data.feed.entry[26].gsx$доллар.$t,
-					p_evroGrivnaSell	= data.feed.entry[26].gsx$_cpzh4.$t,
-					p_rublGrivnaBuy		= data.feed.entry[27].gsx$доллар.$t,
-					p_rublGrivnaSell	= data.feed.entry[27].gsx$_cpzh4.$t,
-					p_dollarRublBuy		= data.feed.entry[30].gsx$доллар.$t,
-					p_dollarRublSell	= data.feed.entry[30].gsx$_cpzh4.$t,
-					p_evroDollarBuy		= data.feed.entry[31].gsx$доллар.$t,
-					p_evroDollarSell	= data.feed.entry[31].gsx$_cpzh4.$t,
-					p_evroRublBuy		= data.feed.entry[32].gsx$доллар.$t,
-					p_evroRublSell		= data.feed.entry[32].gsx$_cpzh4.$t;
+					k_zlotiyGrivnaBuy	= data.feed.entry[18].gsx$доллар.$t,
+					k_zlotiyGrivnaSell	= data.feed.entry[18].gsx$_cpzh4.$t,
+					// k_dollarRublBuy		= data.feed.entry[19].gsx$доллар.$t,
+					// k_dollarRublSell	= data.feed.entry[19].gsx$_cpzh4.$t,
+					// k_evroDollarBuy		= data.feed.entry[20].gsx$доллар.$t,
+					// k_evroDollarSell	= data.feed.entry[20].gsx$_cpzh4.$t,
+					// k_evroRublBuy		= data.feed.entry[21].gsx$доллар.$t,
+					// k_evroRublSell		= data.feed.entry[21].gsx$_cpzh4.$t;
+
+					p_dollarGrivnaBuy	= data.feed.entry[27].gsx$доллар.$t,
+					p_dollarGrivnaSell	= data.feed.entry[27].gsx$_cpzh4.$t,
+					p_evroGrivnaBuy		= data.feed.entry[28].gsx$доллар.$t,
+					p_evroGrivnaSell	= data.feed.entry[28].gsx$_cpzh4.$t,
+					p_rublGrivnaBuy		= data.feed.entry[29].gsx$доллар.$t,
+					p_rublGrivnaSell	= data.feed.entry[29].gsx$_cpzh4.$t,
+
+					p_zlotiyGrivnaBuy	= data.feed.entry[30].gsx$доллар.$t,
+					p_zlotiyGrivnaSell	= data.feed.entry[30].gsx$_cpzh4.$t;
+					// p_dollarRublBuy		= data.feed.entry[30].gsx$доллар.$t,
+					// p_dollarRublSell	= data.feed.entry[30].gsx$_cpzh4.$t,
+					// p_evroDollarBuy		= data.feed.entry[31].gsx$доллар.$t,
+					// p_evroDollarSell	= data.feed.entry[31].gsx$_cpzh4.$t,
+					// p_evroRublBuy		= data.feed.entry[32].gsx$доллар.$t,
+					// p_evroRublSell		= data.feed.entry[32].gsx$_cpzh4.$t;
 				
 				$('.s_dollarGrivnaBuy').html(s_dollarGrivnaBuy);
 				$('.s_dollarGrivnaSell').html(s_dollarGrivnaSell);
@@ -69,12 +78,15 @@
 				$('.s_evroGrivnaSell').html(s_evroGrivnaSell);
 				$('.s_rublGrivnaBuy').html(s_rublGrivnaBuy);
 				$('.s_rublGrivnaSell').html(s_rublGrivnaSell);
-				$('.s_dollarRublBuy').html(s_dollarRublBuy);
-				$('.s_dollarRublSell').html(s_dollarRublSell);
-				$('.s_evroDollarBuy').html(s_evroDollarBuy);
-				$('.s_evroDollarSell').html(s_evroDollarSell);
-				$('.s_evroRublBuy').html(s_evroRublBuy);
-				$('.s_evroRublSell').html(s_evroRublSell);
+
+				$('.s_zlotiyGrivnaBuy').html(s_zlotiyGrivnaBuy);
+				$('.s_zlotiyGrivnaSell').html(s_zlotiyGrivnaSell);
+				// $('.s_dollarRublBuy').html(s_dollarRublBuy);
+				// $('.s_dollarRublSell').html(s_dollarRublSell);
+				// $('.s_evroDollarBuy').html(s_evroDollarBuy);
+				// $('.s_evroDollarSell').html(s_evroDollarSell);
+				// $('.s_evroRublBuy').html(s_evroRublBuy);
+				// $('.s_evroRublSell').html(s_evroRublSell);
 
 				$('.k_dollarGrivnaBuy').html(k_dollarGrivnaBuy);
 				$('.k_dollarGrivnaSell').html(k_dollarGrivnaSell);
@@ -82,12 +94,15 @@
 				$('.k_evroGrivnaSell').html(k_evroGrivnaSell);
 				$('.k_rublGrivnaBuy').html(k_rublGrivnaBuy);
 				$('.k_rublGrivnaSell').html(k_rublGrivnaSell);
-				$('.k_dollarRublBuy').html(k_dollarRublBuy);
-				$('.k_dollarRublSell').html(k_dollarRublSell);
-				$('.k_evroDollarBuy').html(k_evroDollarBuy);
-				$('.k_evroDollarSell').html(k_evroDollarSell);
-				$('.k_evroRublBuy').html(k_evroRublBuy);
-				$('.k_evroRublSell').html(k_evroRublSell);
+
+				$('.k_zlotiyGrivnaBuy').html(k_zlotiyGrivnaBuy);
+				$('.k_zlotiyGrivnaSell').html(k_zlotiyGrivnaSell);
+				// $('.k_dollarRublBuy').html(k_dollarRublBuy);
+				// $('.k_dollarRublSell').html(k_dollarRublSell);
+				// $('.k_evroDollarBuy').html(k_evroDollarBuy);
+				// $('.k_evroDollarSell').html(k_evroDollarSell);
+				// $('.k_evroRublBuy').html(k_evroRublBuy);
+				// $('.k_evroRublSell').html(k_evroRublSell);
 
 				$('.p_dollarGrivnaBuy').html(p_dollarGrivnaBuy);
 				$('.p_dollarGrivnaSell').html(p_dollarGrivnaSell);
@@ -95,12 +110,15 @@
 				$('.p_evroGrivnaSell').html(p_evroGrivnaSell);
 				$('.p_rublGrivnaBuy').html(p_rublGrivnaBuy);
 				$('.p_rublGrivnaSell').html(p_rublGrivnaSell);
-				$('.p_dollarRublBuy').html(p_dollarRublBuy);
-				$('.p_dollarRublSell').html(p_dollarRublSell);
-				$('.p_evroDollarBuy').html(p_evroDollarBuy);
-				$('.p_evroDollarSell').html(p_evroDollarSell);
-				$('.p_evroRublBuy').html(p_evroRublBuy);
-				$('.p_evroRublSell').html(p_evroRublSell);
+
+				$('.p_zlotiyGrivnaBuy').html(p_zlotiyGrivnaBuy);
+				$('.p_zlotiyGrivnaSell').html(p_zlotiyGrivnaSell);
+				// $('.p_dollarRublBuy').html(p_dollarRublBuy);
+				// $('.p_dollarRublSell').html(p_dollarRublSell);
+				// $('.p_evroDollarBuy').html(p_evroDollarBuy);
+				// $('.p_evroDollarSell').html(p_evroDollarSell);
+				// $('.p_evroRublBuy').html(p_evroRublBuy);
+				// $('.p_evroRublSell').html(p_evroRublSell);
 
 				// date
 				var 	updateVal 	= data.feed.updated.$t, 
@@ -129,11 +147,12 @@
 				$('body').on('click', '.exchange-table table tr', function(){
 					$(this).addClass('active').siblings().removeClass('active');
 				});
-
-                setTimeout(function(){$('.start-popup').addClass('active')}, 3000);
+				
+				setTimeout(function(){$('.start-popup').addClass('active')}, 3000);
                 $('.close').click(function(){
                     $('.start-popup').removeClass('active');
                 })
+                
 			})
 		
 	</script>
@@ -141,7 +160,7 @@
 <body>
 	<div class="head flex-row">
 		<h1 class=logo>
-			<img src="images/logo.png" alt="obmenka.name"><br>
+			<img src="images/logo.png" alt="obmenka.name">
 			Работаем для Вас: пн-сб: 7:00-20:00 <br>
 			вс 7:00-19:00
 		</h1>
@@ -194,6 +213,11 @@
 								<td><span class="s_rublGrivnaSell"></span></td>
 							</tr>
 							<tr>
+								<td>PLN/UAH</td>
+								<td><span class="s_zlotiyGrivnaBuy"></span></td>
+								<td><span class="s_zlotiyGrivnaSell"></span></td>
+							</tr>
+							<!-- <tr>
 								<td>USD/RUB</td>
 								<td><span class="s_dollarRublBuy"></span></td>
 								<td><span class="s_dollarRublSell"></span></td>
@@ -207,11 +231,11 @@
 								<td>EUR/RUB</td>
 								<td><span class="s_evroRublBuy"></span></td>
 								<td><span class="s_evroRublSell"></span></td>
-							</tr>
+							</tr> -->
 						</table>
 					</div>
 					<div class="exchange-map col-6">
-                        <div class="start-popup flex-row">
+						<div class="start-popup flex-row">
                             <div class="start-popup-in">
                                 <button class="close">&times;</button>
                                 <p>Уважаемые клиенты! <br>Курсы указанные на сайте являются розничными. Оптовые курсы уточняйте по телефонам, указанным на сайте.<br> (Оптовой считается сумма в эквиваленте не менее 500 у.е.)</p>
@@ -248,6 +272,11 @@
 								<td><span class="k_rublGrivnaSell"></span></td>
 							</tr>
 							<tr>
+								<td>PLN/UAH</td>
+								<td><span class="k_zlotiyGrivnaBuy"></span></td>
+								<td><span class="k_zlotiyGrivnaSell"></span></td>
+							</tr>
+							<!-- <tr>
 								<td>USD/RUB</td>
 								<td><span class="k_dollarRublBuy"></span></td>
 								<td><span class="k_dollarRublSell"></span></td>
@@ -261,7 +290,7 @@
 								<td>EUR/RUB</td>
 								<td><span class="k_evroRublBuy"></span></td>
 								<td><span class="k_evroRublSell"></span></td>
-							</tr>
+							</tr> -->
 						</table>
 					</div>
 					<div class="exchange-map col-6">
@@ -271,7 +300,7 @@
 			</div>
 
 			<!-- pokrovsk -->
-			<div class="exchange-tabs-content-item active">
+			<div class="exchange-tabs-content-item">
 				<div class="flex-row">
 					<div class="exchange-table col-6">
 						<table>
@@ -296,6 +325,11 @@
 								<td><span class="p_rublGrivnaSell"></span></td>
 							</tr>
 							<tr>
+								<td>PLN/UAH</td>
+								<td><span class="p_zlotiyGrivnaBuy"></span></td>
+								<td><span class="p_zlotiyGrivnaSell"></span></td>
+							</tr>
+							<!-- <tr>
 								<td>USD/RUB</td>
 								<td><span class="p_dollarRublBuy"></span></td>
 								<td><span class="p_dollarRublSell"></span></td>
@@ -309,7 +343,7 @@
 								<td>EUR/RUB</td>
 								<td><span class="p_evroRublBuy"></span></td>
 								<td><span class="p_evroRublSell"></span></td>
-							</tr>
+							</tr> -->
 						</table>
 					</div>
 					<div class="exchange-map col-6">
